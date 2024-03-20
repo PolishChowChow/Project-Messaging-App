@@ -1,8 +1,9 @@
+import { useEffect } from "react";
 import Message from "./Message";
 
 export default function Messages(){
     const messages = [
-        { id: 1, content: "This is message 1" },
+        { id: 1, content: "This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1This is message 1" },
         { id: 2, content: "This is message 2" },
         { id: 3, content: "This is message 3" },
         { id: 4, content: "This is message 4" },
@@ -23,10 +24,13 @@ export default function Messages(){
         { id: 3, content: "This is message 19" },
         { id: 4, content: "This is message 20" }
       ];
+    useEffect(()=>{
+        const container = document.querySelector("#messages-container") as HTMLDivElement
+        container.scrollTop = container.scrollHeight
+    },[])
       
       
-      
-    return <div className="grow">
+    return <div id="messages-container" className="grow flex flex-col overflow-scroll max-h-[800px] gap-2 px-7 scroll-m-8">
         {messages.map(message => {
             return <Message key={message.content} message={message} />
         })}
